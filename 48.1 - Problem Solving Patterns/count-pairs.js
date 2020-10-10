@@ -15,4 +15,24 @@
  */
 
 // add whatever parameters you deem necessary
-function countPairs() {}
+function countPairs(nums, num) {
+	nums.sort((a, b) => a - b);
+	let count = 0;
+	let start = 0;
+	let end = nums.length - 1;
+
+	while (start < end) {
+		let sum = nums[start] + nums[end];
+		// if sum equals num, add 1 to count and increment/decrement pointers
+		if (sum === num) {
+			count++;
+			start++;
+			end--;
+		} else if (sum < num) {
+			start++;
+		} else {
+			end--;
+		}
+	}
+	return count;
+}

@@ -16,4 +16,21 @@
  */
 
 // add whatever parameters you deem necessary
-function separatePositive() {}
+function separatePositive(nums) {
+	let start = 0;
+	let end = nums.length - 1;
+
+	while (start < end) {
+		// swap numbers
+		if (nums[start] < 0 && nums[end] > 0) {
+			let temp = nums[start];
+			nums[start] = nums[end];
+			nums[end] = temp;
+		} else {
+			// else increment pointers
+			if (nums[start] > 0) start++;
+			else end--;
+		}
+	}
+	return num;
+}
